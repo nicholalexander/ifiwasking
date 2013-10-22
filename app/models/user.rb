@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   before_create :generate_username
 
   has_many :proclamations
-
+  has_many :votes
+  
   private
 
   def generate_username
