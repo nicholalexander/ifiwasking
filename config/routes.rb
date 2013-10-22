@@ -4,6 +4,9 @@ Ifiwasking::Application.routes.draw do
   devise_for :users
   resources :users
   resources :votes
+
+  # POST /users/1/votes AUTHORIZE (1)
+  
   
   root :to => "proclamations#index"
 

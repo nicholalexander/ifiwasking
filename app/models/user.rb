@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   private
 
   def generate_username
-    binding.pry
     self.username = self.email.split("@")[0]
   end
 end
