@@ -3,7 +3,8 @@ Ifiwasking::Application.routes.draw do
 
   devise_for :users
   resources :users
-
+  resources :votes
+  
   root :to => "proclamations#index"
 
   get 'maps/' => 'maps#index'
