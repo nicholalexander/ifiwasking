@@ -7,7 +7,7 @@ gem 'rails', '4.0.0'
 gem 'pg'
 
 #bring in Pry!
-#gem 'pry' 
+gem 'pry', group: :development
 
 #bring in Heroku?
 gem 'rails_12factor', group: :production

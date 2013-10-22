@@ -4,7 +4,7 @@ Ifiwasking::Application.routes.draw do
   devise_for :users
   resources :users
 
-  root :to => "proclamations#new"
+  root :to => "proclamations#index"
 
   get 'maps/' => 'maps#index'
     
