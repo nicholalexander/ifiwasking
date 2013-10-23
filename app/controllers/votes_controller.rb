@@ -1,13 +1,13 @@
 class VotesController < ApplicationController
 
   def index
-<<<<<<< HEAD
+
     binding.pry
   end
 
   def create
 
-=======
+
     @votes = Vote.all
     @ranked = Proclamation.plusminus_tally
   
@@ -24,7 +24,7 @@ class VotesController < ApplicationController
     @proclamation.user = current_user
 
     redirect '/'
->>>>>>> thumbs_up
+
   end
 
 
