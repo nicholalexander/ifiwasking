@@ -4,4 +4,6 @@ class Proclamation < ActiveRecord::Base
 
     belongs_to :user
     has_many :votes
+
+    acts_as_voteable
 end

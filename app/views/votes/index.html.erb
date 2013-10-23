@@ -1,0 +1,7 @@
+<h1> leaderboard </h1>
+<% @ranked.each do |p| %>
+  <p>
+  <%= p.proclamation %> : <%= p.votes_for %> votes.
+  <%= link_to 'Show', p %>
+  </p>
+<% end %>

@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :proclamations
   has_many :votes
+
+  acts_as_voter
   
   private
 
