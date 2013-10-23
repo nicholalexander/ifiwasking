@@ -16,6 +16,7 @@ Ifiwasking::Application.routes.draw do
   root :to => "proclamations#index"
 
   get 'maps/' => 'maps#index'
+  get 'mapstest/' => 'maps#test'
     
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
