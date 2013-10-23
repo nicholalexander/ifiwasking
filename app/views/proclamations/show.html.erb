@@ -7,8 +7,6 @@
   <%= @proclamation.votes_for %>
 </p>
 
-<%= link_to 'Vote Up' create_vote_path %>
-
 <%= link_to 'Edit', edit_proclamation_path(@proclamation) %> |
 <%= link_to 'Back', proclamations_path %> |
 <%= link_to('vote for this proclamtion!', vote_up_proclamation_path(@proclamation), :method => :post) %>
