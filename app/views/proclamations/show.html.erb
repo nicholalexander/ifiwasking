@@ -5,5 +5,7 @@
   <%= @proclamation.proclamation %>
 </p>
 
+<%= link_to 'Vote Up' create_vote_path %>
+
 <%= link_to 'Edit', edit_proclamation_path(@proclamation) %> |
 <%= link_to 'Back', proclamations_path %>

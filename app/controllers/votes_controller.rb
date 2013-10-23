@@ -1,8 +1,11 @@
 class VotesController < ApplicationController
 
-  def new
+  def index
     binding.pry
-    
+  end
+
+  def create
+
   end
 
 
