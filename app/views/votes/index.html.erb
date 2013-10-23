@@ -1,7 +1,13 @@
-<h1> Leaderboard </h1>
+<% if current_user == @ranked.first.user.username %>
+  <h1> YOURE ON TOP OF THE WORLD, BABY </h1>
+  <%binding.pry%>
+<% else %>
+  <h1> Leaderboard </h1>
+<% end %>
+
 <% @ranked.each do |p| %>
   <p>
-  <%= p.proclamation %> : <%= p.votes_for %> votes.
+  <strong><%= p.proclamation %></strong> from <%= p.user.username %> <%= p.votes_for %> votes.
   <%= link_to 'Show', p %>
   </p>
 <% end %>

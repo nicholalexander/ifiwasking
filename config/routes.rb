@@ -5,9 +5,9 @@ Ifiwasking::Application.routes.draw do
     end
   end
 
-
-  devise_for :users
   resources :users
+  devise_for :users
+
   resources :votes
 
   # POST /users/1/votes AUTHORIZE (1)
