@@ -18,7 +18,7 @@ class ProclamationsController < ApplicationController
       current_user.vote_for(@proclamation = Proclamation.find(params[:id]))
       render :show
     rescue ActiveRecord::RecordInvalid
-      render :nothing => true, :status => 404
+      render :error
     end
   end
 
