@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-
+  #before_action :user_authorization, except: [:new, :create, :index]
+  
   # GET /users
   # GET /users.json
   def index
@@ -73,4 +74,10 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :email)
     end
+
+    def user_authorization
+      binding.pry
+      redirect_to(root_url) unless current_user.id == params[:id]
+    end
+
 end
