@@ -9,10 +9,13 @@ gem 'pg'
 #bring in Pry!
 gem 'pry', group: :development
 
-#thumbs_up?
+#thumbs_up!
 gem 'thumbs_up'
 
-#bring in Heroku?
+#geocoder?
+gem 'geocoder'
+
+#bring in Heroku
 gem 'rails_12factor', group: :production
 
 # Use SCSS for stylesheets
@@ -44,7 +47,7 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-# experiment with devise
+# experiment with devise - IT SUCKS.
 gem 'devise'
 
 # Use unicorn as the app server
