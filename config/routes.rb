@@ -1,5 +1,10 @@
 Ifiwasking::Application.routes.draw do
-  resources :proclamations
+  resources :proclamations do
+    member do
+      post :vote_up
+    end
+  end
+
 
   devise_for :users
   resources :users

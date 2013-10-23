@@ -9,6 +9,9 @@ gem 'pg'
 #bring in Pry!
 gem 'pry', group: :development
 
+#thumbs_up?
+gem 'thumbs_up'
+
 #bring in Heroku?
 gem 'rails_12factor', group: :production
 

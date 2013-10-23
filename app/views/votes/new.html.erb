@@ -1,1 +1,16 @@
-<h1> New Vote </h1>
+<%= form_for(@vote) do |f| %>
+  <div class="field">
+    <%= f.label :vote %><br>
+    <%= f.check_box :vote %>
+  </div>
+
+  <div class ="params">
+    proclamation_id is <%= params[:proclamation_id] %>
+  </div>
+
+  <%= text_field_tag(params[:proclamation_id]) %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
