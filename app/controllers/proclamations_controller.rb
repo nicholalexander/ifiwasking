@@ -1,18 +1,19 @@
 class ProclamationsController < ApplicationController
   before_action :set_proclamation, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, :except => [:index, :new]
+  before_filter :authenticate_user!, :except => [:index]
 
   # GET /proclamations
-  # GET /proclamations.json
   def index
     @proclamations = Proclamation.all
+    @proclamation = Proclamation.new
   end
 
   # GET /proclamations/1
-  # GET /proclamations/1.json
   def show
   end
 
+  #implements  voting with thumbs_up
+  #catches ActiveRecord error if user already voted for proclamation and redirects to error page.
   def vote_up
     begin
       current_user.vote_for(@proclamation = Proclamation.find(params[:id]))
@@ -32,44 +33,37 @@ class ProclamationsController < ApplicationController
   end
 
   # POST /proclamations
-  # POST /proclamations.json
   def create
     @proclamation = Proclamation.new(proclamation_params)
-    #binding.pry
     @proclamation.user = current_user
 
     respond_to do |format|
       if @proclamation.save
         format.html { redirect_to @proclamation, notice: 'Proclamation was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @proclamation }
       else
         format.html { render action: 'new' }
-        format.json { render json: @proclamation.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /proclamations/1
-  # PATCH/PUT /proclamations/1.json
+
   def update
     respond_to do |format|
       if @proclamation.update(proclamation_params)
         format.html { redirect_to @proclamation, notice: 'Proclamation was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @proclamation.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /proclamations/1
-  # DELETE /proclamations/1.json
+  
   def destroy
     @proclamation.destroy
     respond_to do |format|
       format.html { redirect_to proclamations_url }
-      format.json { head :no_content }
     end
   end
 

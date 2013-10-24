@@ -1,14 +1,8 @@
 class VotesController < ApplicationController
 
+  #implements leaderboard
   def index
     @ranked = Proclamation.plusminus_tally
-  end
-
-  def new
-    @vote = Vote.new
-  end
-
-  def create
   end
 
 

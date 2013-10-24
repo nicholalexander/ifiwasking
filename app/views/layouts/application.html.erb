@@ -2,51 +2,41 @@
 <html>
 <head>
   <title>Ifiwasking</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <link href='http://fonts.googleapis.com/css?family=Raleway|Vidaloka' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
-    
-    <div id="user_nav">
-        <%if user_signed_in? %>
-            signed in as <%= current_user.email %>
-            <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-        <% else %>
-            <%= link_to "Sign In", new_user_session_path %> Or <%= link_to "Sign Up", new_user_registration_path %>
-        <% end %> 
+  <div class="container sixteen columns">
+  
+    <%= image_tag "crown.jpg" %>
 
-    <%= link_to 'All Proclamations', proclamations_path %>
-    <%= link_to 'All Users', users_path %>   
-    <%= link_to 'Leaderboard', votes_path %>
+    <div class="nav">
+        <ul>
+          <li><%= link_to 'proclamations', proclamations_path %></li>
+          <li><%= link_to 'users', users_path %></li>   
+          <li><%= link_to 'leaderboard', votes_path %></li>
+
+        <div id="title">
+          Proclamated
+        </div>
+            <%if user_signed_in? %>
+                <li>signed in as <%= current_user.email %>
+                <%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+                <li><%= link_to "sign in", new_user_session_path %> Or <%= link_to "Sign Up", new_user_registration_path %></li>
+            <% end %> 
+ 
+       
+        </ul>
+
     </div>
-
+      
+    
     <%= yield %>
-
-
-    <script type='text/javascript'>
-
-    var _ues = {
-    host:'ifiwasking.userecho.com',
-    forum:'25132',
-    lang:'en',
-    tab_corner_radius:5,
-    tab_font_size:20,
-    tab_image_hash:'ZmVlZGJhY2s%3D',
-    tab_chat_hash:'Y2hhdA%3D%3D',
-    tab_alignment:'right',
-    tab_text_color:'#FFFFFF',
-    tab_text_shadow_color:'#00000020',
-    tab_bg_color:'#BABABA',
-    tab_hover_color:'#F45C5C'
-    };
-
-    (function() {
-        var _ue = document.createElement('script'); _ue.type = 'text/javascript'; _ue.async = true;
-        _ue.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.userecho.com/js/widget-1.4.gz.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(_ue, s);
-      })();
-
-    </script>
+  
+  </div>
 </body>
+
 </html>

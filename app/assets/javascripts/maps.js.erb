@@ -1,7 +1,7 @@
 function success(position) {
   var s = document.querySelector('#status');
   
-  if (s.className == 'success') {
+  if (s && s.className == 'success') {
     // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
     return;
   }
@@ -28,16 +28,6 @@ function success(position) {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
-function getGeoLocation() {
-  navigator.geolocation.getCurrentPosition(setGeoCookie);
-}
-
-function setGeoCookie(position) {
-  var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
-  document.cookie = "lat_lng=" + escape(cookie_val);
-}
-
-
   var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
   
   var marker = new google.maps.Marker({
@@ -51,12 +41,9 @@ function error(msg) {
   var s = document.querySelector('#status');
   s.innerHTML = typeof msg == 'string' ? msg : "failed";
   s.className = 'fail';
-  
   // console.log(arguments);
 }
 
-if (navigator.geolocation) {
+function getGeoLocation() {
   navigator.geolocation.getCurrentPosition(success, error);
-} else {
-  error('not supported');
 }

@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Username:</strong>
+  Username:
   <%= @user.username %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  Email:
   <%= @user.email %>
 </p>
 
@@ -18,27 +18,16 @@
 
 <h2>All These Proclamations Are Yours</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Proclamation</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <!-- rename proclamation to body (edict) -->
-
-  <tbody>
     <% @user.proclamations.each do |proclamation| %>
-      <tr>
-        <td><%= proclamation.proclamation %></td>
-        <td><%= link_to 'Show', proclamation %></td>
-<!--         need to make this authorized
-        <td><%= link_to 'Edit', edit_proclamation_path(proclamation) %></td>
-        <td><%= link_to 'Destroy', proclamation, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
+      
+
+        <p><%= proclamation.proclamation %></p>
+        <p>
+        <%= link_to 'Show', proclamation %>
+
+        <% if current_user == proclamation.user %>
+          | <%= link_to 'Edit', edit_proclamation_path(proclamation) %> |
+          <%= link_to 'Destroy', proclamation, method: :delete, data: { confirm: 'Are you sure?' } %> 
+        <% end %>
+      </p>
     <% end %>
-  </tbody>
-</table>

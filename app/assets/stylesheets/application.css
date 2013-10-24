@@ -10,6 +10,10 @@
  *
  *
  *= require_self 
- *= require_tree .
+ *= require_tree
 */
 
+.proclamation {
+  background-color: rgba(0, 0, 0, .1);
+  font-family: 'Raleway', sans-serif;
+}

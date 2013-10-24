@@ -1,0 +1,20 @@
+<div class="proclamation">
+
+
+  <p>
+    <h1><%= proclamation.proclamation %> </h1> by <%= link_to proclamation.user.username, proclamation.user %>
+  </p>
+  
+  <div class="link">        
+    <%= link_to('Vote It Up!', vote_up_proclamation_path(proclamation), :method => :post) %>
+  </div>  
+    
+
+  <% if current_user == proclamation.user %>
+    <p>
+      <%= link_to 'Edit', edit_proclamation_path(proclamation) %>
+      <%= link_to 'Destroy', proclamation, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+  <% end %>
+
+</div>

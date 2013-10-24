@@ -1,6 +1,5 @@
-<% if current_user == @ranked.first.user.username %>
-  <h1> YOURE ON TOP OF THE WORLD, BABY </h1>
-  <%binding.pry%>
+<% if current_user == @ranked.first.user %>
+  <h1> ON TOP OF THE WORLD, BABY </h1>
 <% else %>
   <h1> Leaderboard </h1>
 <% end %>

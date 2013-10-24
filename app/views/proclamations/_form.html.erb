@@ -11,11 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :proclamation %><br>
+
     <%= f.text_field :proclamation %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.submit 'Proclaim', :class => 'full-width button' %>
 <% end %>

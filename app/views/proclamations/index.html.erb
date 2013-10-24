@@ -1,25 +1,12 @@
-<div class="container">
-  <div class="title">
-  <h1>Proclaim The Truth!</h1>
-  </div>
-      <% @proclamations.each do |proclamation| %>
-        <div class="proclamation">
-          <p>
-            <h2><%= proclamation.proclamation %> </h2> by <%= link_to proclamation.user.username, proclamation.user %>
-          </p>
-          <div class="link">        
-            <%= link_to 'Show', proclamation %>
-          </div>  
-            
-          <% if current_user == proclamation.user %>
-            <p>
-              <%= link_to 'Edit', edit_proclamation_path(proclamation) %>
-              <%= link_to 'Destroy', proclamation, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </p>
-          <% end %>
-        </div>
-      <% end %>
+<div class="title">
+    <h3>If I Were King...</h3>
+    <%= render 'form' %>
+</div>
 
-  <%= link_to 'New Proclamation', new_proclamation_path %>
-  
+<div>
+    <% @proclamations.each do |proclamation| %>
+        <div class="four columns">
+          <%= render 'single', proclamation: proclamation %>
+        </div>
+    <% end %>
 </div>
