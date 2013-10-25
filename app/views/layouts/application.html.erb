@@ -22,6 +22,7 @@
           <li><%= link_to 'proclamations', proclamations_path %></li>
           <li><%= link_to 'users', users_path %></li>   
           <li><%= link_to 'leaderboard', votes_path %></li>
+          <li>experimental: <%= link_to 'mapped', maps_show_path %> | <%= link_to 'geolocate', maps_path %></li>
 
             <%if user_signed_in? %>
                 <li>signed in as <%= current_user.email %>
