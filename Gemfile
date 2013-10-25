@@ -15,6 +15,9 @@ gem 'thumbs_up'
 #geocoder?
 gem 'geocoder'
 
+#gmaps4rails 
+gem 'gmaps4rails'
+
 #bring in Heroku
 gem 'rails_12factor', group: :production
 

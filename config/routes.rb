@@ -9,7 +9,6 @@ Ifiwasking::Application.routes.draw do
   devise_for :users
   resources :users
   
-
   resources :votes
 
   # POST /users/1/votes AUTHORIZE (1)
@@ -17,6 +16,7 @@ Ifiwasking::Application.routes.draw do
   root :to => "proclamations#index"
 
   get 'maps/' => 'maps#index'
+  get 'maps/show' => 'maps#show'
   get 'mapstest/' => 'maps#test'
     
   # The priority is based upon order of creation: first created -> highest priority.

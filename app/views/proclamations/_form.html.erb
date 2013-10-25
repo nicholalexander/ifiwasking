@@ -1,17 +1,6 @@
-<%= form_for(@proclamation) do |f| %>
-  <% if @proclamation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@proclamation.errors.count, "error") %> prohibited this proclamation from being saved:</h2>
-
-      <ul>
-      <% @proclamation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-    <%= f.text_field :proclamation %>
+<div>
+  <%= form_for(@proclamation) do |f| %>
+    <%= f.text_field :proclamation, :class=> "eleven columns", placeholder: "your best idea goes here..."%>
     <%= f.submit 'Proclaim', :class => 'full-width button' %>
-<% end %>
+  <% end %>
+</div>
